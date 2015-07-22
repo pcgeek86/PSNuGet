@@ -1,5 +1,8 @@
 clone_folder: c:\repos\PoshNuGet
 
+build_script:
+- ps: return;
+
 environment:
   psapikey:
     secure: irPGuqa1jY5hJ4pM1qchY4q8VpoLwJ/una1FpQpWysiGh/BKJQwT67LOu8dOq8r7
@@ -14,3 +17,4 @@ branches:
   only:
     - master
 
+deploy:
