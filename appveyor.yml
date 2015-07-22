@@ -17,4 +17,5 @@ branches:
   only:
     - master
 
-deploy:
+deploy_script:
+- ps: return;
