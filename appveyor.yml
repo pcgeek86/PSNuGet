@@ -7,6 +7,9 @@ environment:
   psapikey:
     secure: irPGuqa1jY5hJ4pM1qchY4q8VpoLwJ/una1FpQpWysiGh/BKJQwT67LOu8dOq8r7
 
+# Disable AppVeyor tests
+test: off
+
 os: Unstable
 
 #install:
@@ -17,4 +20,5 @@ deploy:
   - provider: Local
 
 deploy_script:
-- ps: 1;
+  ps: Import-Module -Path $PSScriptRoot;
+  ps: Publish-Module -Name PoshNuGet -ApiKey $env:psapikey;
