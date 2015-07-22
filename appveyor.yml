@@ -7,4 +7,10 @@ environment:
 os: unstable
 
 install:
-  ps: Publish-Module -Name PoshNuGet -ApiKey $env:psapikey;
+#  ps: Import-Module -Path $PSScriptRoot;
+#  ps: Publish-Module -Name PoshNuGet -ApiKey $env:psapikey;
+
+branches:
+  only:
+    - master
+

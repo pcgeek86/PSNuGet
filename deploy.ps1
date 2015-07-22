@@ -10,4 +10,4 @@
 
 Import-Module -Name $PSScriptRoot;
 
-Publish-Module -Name PoshNuGet -ApiKey $env:psapikey;
+Publish-Module -Name PoshNuGet -NuGetApiKey $env:psapikey;
