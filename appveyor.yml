@@ -20,5 +20,5 @@ deploy:
   - provider: Local
 
 deploy_script:
-  ps: Import-Module -Path $PSScriptRoot;
-  ps: Publish-Module -Name PoshNuGet -ApiKey $env:psapikey;
+- ps: Import-Module -Path $PSScriptRoot;
+- ps: Publish-Module -Name PoshNuGet -ApiKey $env:psapikey;
