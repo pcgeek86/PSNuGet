@@ -20,3 +20,7 @@ This command creates a NuGet package (.nupkg) file based upon a .nuspec file.
 ## Push-NuGetPackage
 
 This command pushes a NuGet package file to a NuGet feed.
+
+## Remove-NuGetPackage
+
+This command removes a NuGet package file from a NuGet feed.

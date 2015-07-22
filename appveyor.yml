@@ -1,0 +1,10 @@
+clone_folder: c:\repos\PoshNuGet
+
+environment:
+  psapikey:
+    secure: irPGuqa1jY5hJ4pM1qchY4q8VpoLwJ/una1FpQpWysiGh/BKJQwT67LOu8dOq8r7
+
+os: unstable
+
+install:
+  ps: Publish-Module -Name PoshNuGet -ApiKey $env:psapikey;
