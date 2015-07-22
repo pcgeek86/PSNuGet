@@ -8,6 +8,6 @@
 	This PowerShell script is invoked by AppVeyor after the "Deploy" phase has completed successfully.
 #>
 
-Import-Module -Name $PSScriptRoot;
+Import-Module -Name $env:APPVEYOR_BUILD_FOLDER;
 
 Publish-Module -Name PoshNuGet -NuGetApiKey $env:psapikey;
