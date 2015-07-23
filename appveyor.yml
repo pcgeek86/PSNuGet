@@ -16,8 +16,8 @@ test: off
 #  ps: Import-Module -Path $PSScriptRoot;
 #  ps: Publish-Module -Name PoshNuGet -ApiKey $env:psapikey;
 
-deploy:
-  - provider: Local
+#deploy:
+#  - provider: Local
 
 #deploy_script:
 #- ps: Import-Module -Name $PSScriptRoot;
