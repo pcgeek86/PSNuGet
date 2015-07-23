@@ -8,6 +8,8 @@
 	This PowerShell script is invoked by AppVeyor after the "Deploy" phase has completed successfully.
 #>
 
+$VerbosePreference = 'continue';
+Get-ChildItem -Path env:;
 'AppVeyor Build Folder: {0}' -f $env:APPVEYOR_BUILD_FOLDER;
 Find-Package -ForceBootstrap -Name z*;
 Import-Module -Name c:\repos\PoshNuGet;
