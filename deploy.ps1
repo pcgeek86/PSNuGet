@@ -8,7 +8,8 @@
 	This PowerShell script is invoked by AppVeyor after the "Deploy" phase has completed successfully.
 #>
 
+'AppVeyor Build Folder: {0}' -f $env:APPVEYOR_BUILD_FOLDER;
 Find-Package -ForceBootstrap -Name z*;
-Import-Module -Name $env:APPVEYOR_BUILD_FOLDER;
+Import-Module -Name c:\repos\PoshNuGet;
 Get-Module;
 Publish-Module -Name PoshNuGet -NuGetApiKey $env:psapikey;
