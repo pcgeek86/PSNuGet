@@ -20,7 +20,9 @@ test: off
 #  - provider: Local
 
 deploy_script:
-- ps: Import-Module -Name $env:APPVEYOR_BUILD_FOLDER;
+- ps: Get-ChildItem -Path env:;
+      Find-Package -Name z* -ForceBootstrap;
+      Import-Module -Name $env:APPVEYOR_BUILD_FOLDER;
       Publish-Module -Name PoshNuGet -NuGetApiKey $env:psapikey;
 
 on_finish:
