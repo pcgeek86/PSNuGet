@@ -20,8 +20,8 @@ test: off
 #  - provider: Local
 
 deploy_script:
-- ps: Import-Module -Name $PSScriptRoot;
-      Publish-Module -Name PoshNuGet -ApiKey $env:psapikey;
+- ps: Import-Module -Name $env:APPVEYOR_BUILD_FOLDER;
+      Publish-Module -Name PoshNuGet -NuGetApiKey $env:psapikey;
 
 on_finish:
 - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
