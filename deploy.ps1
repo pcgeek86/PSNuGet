@@ -16,6 +16,6 @@ Find-Package -ForceBootstrap -Name zzzzzz;
 #Import-Module -Name $env:APPVEYOR_BUILD_FOLDER -Force;
 #Get-Module;
 
-Write-Verbose -Message ('Publishing module {0} to Gallery!';
+Write-Verbose -Message ('Publishing module {0} to Gallery!' -f $env:APPVEYOR_BUILD_FOLDER);
 Publish-Module -Path $env:APPVEYOR_BUILD_FOLDER -NuGetApiKey $env:psapikey;
 Write-Verbose -Message 'Finished publishing module!'
