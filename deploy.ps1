@@ -9,13 +9,13 @@
 #>
 
 $VerbosePreference = 'continue';
-Get-ChildItem -Path env:;
 'AppVeyor Build Folder: {0}' -f $env:APPVEYOR_BUILD_FOLDER;
-Find-Package -ForceBootstrap -Name z*;
+Write-Verbose -Message 'Calling Find-Package command to download nuget-anycpu.exe'
+Find-Package -ForceBootstrap -Name zzzzzz;
 
 #Import-Module -Name $env:APPVEYOR_BUILD_FOLDER -Force;
 #Get-Module;
 
-Write-Verbose -Message 'Publishing module {0} to Gallery!';
+Write-Verbose -Message ('Publishing module {0} to Gallery!';
 Publish-Module -Path $env:APPVEYOR_BUILD_FOLDER -NuGetApiKey $env:psapikey;
 Write-Verbose -Message 'Finished publishing module!'
