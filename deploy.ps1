@@ -11,7 +11,7 @@
 $VerbosePreference = 'continue';
 'AppVeyor Build Folder: {0}' -f $env:APPVEYOR_BUILD_FOLDER;
 Write-Verbose -Message 'Calling Find-Package command to download nuget-anycpu.exe'
-Find-Package -ForceBootstrap -Name zzzzzz;
+Find-Package -ForceBootstrap -Name zzzzzz -ErrorAction Ignore;
 
 #Import-Module -Name $env:APPVEYOR_BUILD_FOLDER -Force;
 #Get-Module;
