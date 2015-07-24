@@ -12,6 +12,6 @@ $VerbosePreference = 'continue';
 Get-ChildItem -Path env:;
 'AppVeyor Build Folder: {0}' -f $env:APPVEYOR_BUILD_FOLDER;
 Find-Package -ForceBootstrap -Name z*;
-Import-Module -Name c:\repos\PoshNuGet;
+Import-Module -Name $env:APPVEYOR_BUILD_FOLDER -Force;
 Get-Module;
-Publish-Module -Name PoshNuGet -NuGetApiKey $env:psapikey;
+Publish-Module -Path $env:APPVEYOR_BUILD_FOLDER -NuGetApiKey $env:psapikey;
