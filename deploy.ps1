@@ -20,7 +20,7 @@ function Patch-ModuleManifest {
 		if (!$Path) { throw 'Could not find a module manifest file'; }
 	}
 
-	$ManifestContent = Get-Content -Path $Path;
+	$ManifestContent = Get-Content -Path $Path -Raw;
 	$ManifestContent = $ManifestContent -replace '(?<=ModuleVersion\s+=\s+'')(?<ModuleVersion>.*)(?='')', ('${{ModuleVersion}}.{0}' -f $BuildNumber);
 	Set-Content -Path $Path -Value $ManifestContent;
 
@@ -46,7 +46,7 @@ function Main {
 	Write-Verbose -Message 'Calling Find-Package command to download nuget-anycpu.exe'
 	Find-Package -ForceBootstrap -Name zzzzzz -ErrorAction Ignore;
 
-	Patch-ModuleManifest -Path $env:APPVEYOR_BUILD_FOLDER\PoshNuGet.psm1 -BuildNumber $env:APPVEYOR_BUILD_NUMBER;
+	Patch-ModuleManifest -Path $env:APPVEYOR_BUILD_FOLDER\PoshNuGet.psd1 -BuildNumber $env:APPVEYOR_BUILD_NUMBER;
 
 	Write-Verbose -Message ('Publishing module {0} to Gallery!' -f $env:APPVEYOR_BUILD_FOLDER);
 	Publish-Module -Path $env:APPVEYOR_BUILD_FOLDER -NuGetApiKey $env:psapikey;
